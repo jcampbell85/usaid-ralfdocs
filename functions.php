@@ -52,8 +52,8 @@ function usaidralf_styles(){
 add_action('after_setup_theme', 'usaidralf_theme_setup');
 function usaidralf_theme_setup(){
   add_theme_support('post-thumbnails');
-  register_nav_menu( 'header-nav', 'Header Navigation' );
   load_theme_textdomain('usaidralf', get_template_directory() . '/languages');
+  register_nav_menu('header-nav', esc_html__('Header Navigation', 'usaidralf'));
 }
 
 function usaidralf_header_fallback_menu(){ ?>
