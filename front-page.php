@@ -6,12 +6,12 @@
           <?php $i=0; while(have_rows('hero_carousel')): the_row(); ?>
 
             <?php if(get_sub_field('slide_image')): ?>
-              <div class="item<?php if($i==0){ echo ' active'; } ?>" style="background-image:url(<?php the_sub_field('slide_image'); ?>);">
+              <div class="item<?php if($i==0){ echo ' active'; } ?>" style="background-image:url(<?php echo esc_url(get_sub_field('slide_image')); ?>);">
                 <div class="slide-caption-wrapper">
                   <div class="slide-caption">
-                    <h1><?php the_sub_field('slide_title'); ?></h1>
-                    <?php the_sub_field('slide_caption'); ?>
-                    <a href="<?php echo esc_url(get_term_link(get_sub_field('sector_link'))); ?>" class="btn-main"><?php _e('View Impacts', 'usaidralf'); ?></a>
+                    <h1><?php echo esc_html(get_sub_field('slide_title')); ?></h1>
+                    <?php echo wp_kses_post(get_sub_field('slide_caption')); ?>
+                    <a href="<?php echo esc_url(get_term_link(get_sub_field('sector_link'))); ?>" class="btn-main"><?php echo esc_html__('View Impacts', 'usaidralf'); ?></a>
                   </div>
                 </div>
               </div>
@@ -31,10 +31,10 @@
 
   <div class="search-bar">
     <div class="container">
-      <p><?php the_field('search_bar_text'); ?></p>
-      <form class="form-inline" action="<?php echo home_url(); ?>" method="get">
+      <p><?php echo wp_kses_post(get_field('search_bar_text')); ?></p>
+      <form class="form-inline" action="<?php echo esc_url(home_url()); ?>" method="get">
         <div class="form-group">
-          <label for="search-field" class="sr-only"><?php _e('Search', 'usaidralf'); ?></label>
+          <label for="search-field" class="sr-only"><?php echo esc_html__('Search', 'usaidralf'); ?></label>
           <div class="input-group">
             <input type="text" id="search-field" name="s" class="form-control" />
             <div class="input-group-addon">
@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        <input type="submit" class="btn-main" value="<?php _e('Search', 'usaidralf'); ?>" />
+        <input type="submit" class="btn-main" value="<?php echo esc_html__('Search', 'usaidralf'); ?>" />
       </form>
     </div>
   </div>
@@ -50,8 +50,8 @@
   <section id="sectors">
     <div class="container">
       <header class="section-header">
-        <h2><?php the_field('sectors_section_title'); ?></h2>
-        <?php the_field('sectors_section_intro'); ?>
+        <h2><?php echo esc_html(get_field('sectors_section_title')); ?></h2>
+        <?php echo wp_kses_post(get_field('sectors_section_intro')); ?>
       </header>
       <div class="row">
         <?php
@@ -68,8 +68,8 @@
 
             <div class="col-sm-6 col-md-3">
               <a href="<?php echo esc_url(get_term_link($sector->term_id, 'sectors')); ?>" class="sector-icon">
-                <img src="<?php echo $sector_icon_url; ?>" class="img-circle img-responsive center-block" alt="Agriculture Sector" style="background-color:<?php echo $sector_color; ?>;" />
-                <h3><?php echo $sector->name; ?></h3>
+                <img src="<?php echo esc_url($sector_icon_url); ?>" class="img-circle img-responsive center-block" alt="Agriculture Sector" style="background-color:<?php echo $sector_color; ?>;" />
+                <h3><?php echo esc_html($sector->name); ?></h3>
               </a>
             </div>
 
@@ -81,8 +81,8 @@
   <section id="quick-select">
     <div class="container">
       <header class="section-header">
-        <h2><?php the_field('quick_select_section_title'); ?></h2>
-        <?php the_field('quick_select_section_intro'); ?>
+        <h2><?php echo esc_html(get_field('quick_select_section_title')); ?></h2>
+        <?php echo wp_kses_post(get_field('quick_select_section_intro')); ?>
       </header>
       <?php echo do_shortcode('[ralfdocs_quick_select_form number_of_options="40"]'); ?>
     </div>
@@ -91,8 +91,8 @@
   <section id="common-search-terms">
     <div class="container">
       <header class="section-header">
-        <h2><?php the_field('common_search_terms_section_title'); ?></h2>
-        <?php the_field('common_search_terms_section_intro'); ?>
+        <h2><?php echo esc_html(get_field('common_search_terms_section_title')); ?></h2>
+        <?php echo wp_kses_post(get_field('common_search_terms_section_intro')); ?>
       </header>
 
       <div class="terms-grid">
@@ -110,7 +110,7 @@
           foreach($common_search_terms as $search_term){
             if(strpbrk($search_term->query, $filter_chars) == false){
               echo '<div class="grid-item">';
-              echo '<a href="' . esc_url(add_query_arg('s', $search_term->query, home_url())) . '" class="search-term">' . $search_term->query . ' <span>(' . $search_term->hits . ' ' . __('results', 'usaidralf') . ')</a>';
+              echo '<a href="' . esc_url(add_query_arg('s', $search_term->query, home_url())) . '" class="search-term">' . esc_html($search_term->query) . ' <span>(' . $search_term->hits . ' ' . esc_html__('results', 'usaidralf') . ')</a>';
               echo '</div>';
             }
           }
