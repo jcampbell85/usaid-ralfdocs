@@ -846,6 +846,9 @@ main.result{
 .impact-by-sector-meta{
   margin-left:15px;
 }
+.impact-by-sector-meta>.loop-item-meta>.article-type{
+  display:none;
+}
 .loop-item-meta{
   display:inline-block;
 }
