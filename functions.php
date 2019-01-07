@@ -56,6 +56,8 @@ function usaidralf_theme_setup(){
   register_nav_menu('header-nav', esc_html__('Header Navigation', 'usaidralf'));
 }
 
+require_once USAIDRALF_TEMPLATE_DIR . '/includes/class-wp_bootstrap_navwalker.php';
+
 function usaidralf_header_fallback_menu(){ ?>
       
   <div id="navbar" class="collapse navbar-collapse">
