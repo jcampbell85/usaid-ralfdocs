@@ -846,6 +846,9 @@ main.result{
 .impact-by-sector-meta{
   margin-left:15px;
 }
+.loop-item-meta{
+  display:inline-block;
+}
 .go-back>a{
   color:#808080;
   font-family:"AvenirNext", sans-serif;
