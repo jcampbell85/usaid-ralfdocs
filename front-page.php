@@ -44,6 +44,7 @@
         </div>
         <input type="submit" class="btn-main" value="<?php echo esc_html__('Search', 'usaidralf'); ?>" />
       </form>
+      <p style="margin-bottom:0; margin-top:25px;"><a href="<?php echo esc_url(home_url('question-tree')); ?>" style="color:#fff;">Question Tree</a></p>
     </div>
   </div>
 
