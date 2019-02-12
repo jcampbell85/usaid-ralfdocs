@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
   var footerHeight = $('#footer').outerHeight(true);
   var $resultsSidebar = $('.results-sidebar');
 
-  $resultsSidebar.on('affix.bs.affix', function(){
+/*  $resultsSidebar.on('affix.bs.affix', function(){
     $(this).css({'top': 25, 'margin-top': 0});
   });
   $resultsSidebar.on('affix-top.bs.affix', function(){
@@ -20,5 +20,5 @@ jQuery(document).ready(function($){
         return footerHeight + 40;
       }
     }
-  });
+  });*/
 });
