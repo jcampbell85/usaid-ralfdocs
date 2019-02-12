@@ -296,7 +296,10 @@ section{
 .sector-icon img{
   -webkit-transition:all .3s ease;
   transition:all .3s ease;
-	max-width:150px;
+  /*max-width:150px;*/
+  width:150px;
+  height:150px;
+  padding:25px;
 }
 .sector-icon img:hover{
   transform:scale(1.1);
@@ -348,9 +351,12 @@ section{
   margin-bottom:25px;
 }
 .sector-title>img{
-  max-width:54px;
+  /*max-width:54px;*/
   display:inline-block;
   margin-right:15px;
+  height:55px;
+  width:55px;
+  padding:5px;
 }
 
 #quick-select{
