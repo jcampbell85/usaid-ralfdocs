@@ -893,6 +893,23 @@ main.result{
   border-right:3px solid red;
 }
 
+#common-search-terms .grid-item{
+  position:relative;
+}
+.remove-search-term{
+  position:absolute;
+  top:0px;
+  right:0px;
+  height:16px;
+  width:16px;
+  background-color:#f00;
+  border-radius:50%;
+  line-height:1em;
+  font-size:14px;
+  color:#fff;
+  cursor:pointer;
+}
+
 @media (max-width:767px){
   .search-bar .form-group{
     width:100%;

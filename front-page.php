@@ -113,6 +113,9 @@
             if(strpbrk($search_term->query, $filter_chars) == false){
               echo '<div class="grid-item">';
               echo '<a href="' . esc_url(add_query_arg('s', $search_term->query, home_url())) . '" class="search-term">' . esc_html($search_term->query) . ' <span>(' . $search_term->hits . ' ' . esc_html__('results', 'usaidralf') . ')</a>';
+              if(is_user_logged_in() && current_user_can('delete_others_posts')){
+                echo '<span class="remove-search-term" data-query="' . esc_html($search_term->query) . '" title="Remove this search term.">x</span>';
+              }
               echo '</div>';
             }
           }
